@@ -1,0 +1,3 @@
+import { test, expect } from '@playwright/test';
+test('main sections are reachable and mobile navigation is visible', async ({page}) => { await page.goto('/'); await expect(page.getByRole('heading',{name:'Your body, in context.'})).toBeVisible(); for (const label of ['History','Trends','Compare','Import','Settings']) { await page.getByRole('link',{name:label,exact:true}).first().click(); await expect(page.locator('h1')).toBeVisible(); }
+ await page.setViewportSize({width:390,height:844}); await page.goto('/dashboard'); await expect(page.getByRole('navigation',{name:'Mobile navigation'})).toBeVisible(); await expect(page.getByRole('link',{name:'History',exact:true}).last()).toBeVisible(); });

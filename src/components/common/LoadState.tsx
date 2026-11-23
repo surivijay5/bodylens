@@ -1,0 +1,1 @@
+export function LoadState({error}:{error?:string}) { return <div className="notice" role={error?'alert':'status'}>{error ? <><strong>Couldn’t load local data</strong><span>{error}</span></> : <><span className="spinner"/> Loading measurements…</>}</div>; }
